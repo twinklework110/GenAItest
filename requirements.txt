@@ -53,7 +53,7 @@ streamlit-option-menu
 docx2txt
 pyperclip
 #pywin32==306
-win32clipboard
+#win32clipboard
 # uncomment to use huggingface llms
 # huggingface-hub==0.14.1
 
