@@ -4,7 +4,7 @@ import streamlit as st
 from streamlit_chat import message
 from dotenv import load_dotenv
 import os
-import pyperclip
+# import pyperclip
 
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
@@ -83,12 +83,12 @@ def app():
             message(msg.content, is_user=True, key=str(i) + '_user')
         else:
             message(msg.content, is_user=False, key=str(i) + '_ai')
-            copy_button_id = f"copy_button_{i}"
-            if st.button("Copy", key=copy_button_id):
-               copy_to_clipboard(msg.content)
+#             copy_button_id = f"copy_button_{i}"
+#             if st.button("Copy", key=copy_button_id):
+#                copy_to_clipboard(msg.content)
 
-def copy_to_clipboard(content):
-    pyperclip.copy(content)
+# def copy_to_clipboard(content):
+#     pyperclip.copy(content)
 
 if __name__ == '__app__':
     app()
