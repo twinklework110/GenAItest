@@ -90,5 +90,5 @@ def app():
 # def copy_to_clipboard(content):
 #     pyperclip.copy(content)
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app()
