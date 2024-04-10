@@ -12,7 +12,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain_core.prompts import PromptTemplate
-import pyperclip
+# import pyperclip
 from langchain.chains import (
     StuffDocumentsChain, LLMChain, ConversationalRetrievalChain
 )
@@ -199,12 +199,12 @@ def app():
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
         else:
             st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            copy_button_id = f"copy_button_{i}"
-            if st.button("Copy", key=copy_button_id):
-               copy_to_clipboard(message.content)
+#             copy_button_id = f"copy_button_{i}"
+#             if st.button("Copy", key=copy_button_id):
+#                copy_to_clipboard(message.content)
 
-def copy_to_clipboard(content):
-    pyperclip.copy(content)
+# def copy_to_clipboard(content):
+#     pyperclip.copy(content)
                      
 if __name__ == '__main__':
    app()
