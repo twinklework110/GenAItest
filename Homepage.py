@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 
 import Chatbot
 import TA_Picture_GPT
-import PDF_GPTold
+import pkk
 import Home
 import Email_Summarizer
 import Meeting
@@ -54,7 +54,7 @@ def run():
     if app == 'Picture GPT':
         TA_Picture_GPT.app()
     elif app == 'PDF GPT':
-        PDF_GPTold.app()
+        pkk.app()
 
 run()
               
