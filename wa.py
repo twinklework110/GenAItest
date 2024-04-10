@@ -8,7 +8,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
-import pyperclip
+# import pyperclip
 
 load_dotenv()
 
@@ -73,15 +73,15 @@ def app():
             result = work_anniversary_message(string_data, system_message_content, vector_store)
             st.write("**Output:**")
             otp= result["result"]
-            # st.write(result["result"])
+            st.write(result["result"])
 
             # if st.button("Copy"):
             #     pyperclip.copy(otp)  # Copy text to clipboard using pyperclip
             #     st.success("Message copied to clipboard!")
 
-            if st.button("Download Message"):
-             message_content = otp.encode("utf-8")  # Encode for byte data
-             st.download_button(label="Download Message", data=message_content, file_ext="txt")
+            # if st.button("Download Message"):
+            #  message_content = otp.encode("utf-8")  # Encode for byte data
+            #  st.download_button(label="Download Message", data=message_content, file_ext="txt")
 
 # Call the app function to execute it
 if __name__ == '__main__':
