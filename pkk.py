@@ -148,6 +148,21 @@ def handle_userinput(user_question):
 
 def app():
     load_dotenv()
+
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stForm"]{
+            position: fixed;
+            bottom: 0;
+            width: 50%;
+            background-color: #424c54;
+            padding: 10px;
+            z-index: 10;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
     # new()
 
     # st.set_page_config(page_title="Chat with multiple PDFs",
