@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from io import BytesIO
-import pyperclip
+# import pyperclip
 import docx2txt  # Import the docx2txt library
 
 from dotenv import load_dotenv
