@@ -3,7 +3,7 @@ import importlib.util
 from streamlit_option_menu import option_menu
 
 
-import Mom
+# import Mom
 import SentiAnalysis
 import WhoSaidWhat
 import QnAwithMeetScript
