@@ -52,7 +52,7 @@ zstandard==0.21.0
 streamlit-option-menu
 docx2txt
 #pyperclip
-pywin32
+pywin32==306
 
 # uncomment to use huggingface llms
 # huggingface-hub==0.14.1
