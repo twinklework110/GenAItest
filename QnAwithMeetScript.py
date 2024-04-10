@@ -9,6 +9,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
+import  pyperclip
 
 load_dotenv()
 
@@ -23,14 +24,19 @@ def generate_minutes(text_data, user_question, system_message_content, vector_st
     return qa({"query": prompt})
 
 def app():
+
+    session_state = st.session_state
+    if 'content' not in session_state:
+        session_state.content = ""
     # System message
     st.write("Please upload a .txt or .docx file to chat with the document.")
 
     uploaded_file = st.file_uploader("Choose a file", type=["txt", "docx"])
 
-    #with st.sidebar:
-    # Chat option
-    user_question = st.text_input("Ask a question about the document:")
+    
+    user_question = st.text_input("Ask a question about the document:",)
+
+    
 
     # Enable button only if file is uploaded
     if uploaded_file is not None:
@@ -68,9 +74,17 @@ def app():
 
         result = generate_minutes(text_data, user_question, system_message_content, vector_store)
         st.write("**Output:**")
-        st.write(result["result"])
-    # else:
-    #     st.warning("Please upload a document to proceed.")
+        session_state.content = result["result"]
+        st.write(session_state.content)
+
+    if len(session_state.content) >1:      
+        if st.button("Copy", key=123):
+            copy_to_clipboard(session_state.content)
+
+def copy_to_clipboard(res):
+    pyperclip.copy(res)  # Copy text to clipboard using pyperclip
+    st.success("Message copied to clipboard!")
+
 
 # Call the app function to execute it
 if __name__ == '__main__':
