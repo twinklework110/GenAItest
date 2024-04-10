@@ -182,7 +182,11 @@ def app():
     with st.container():
         myfrom=st.form(key="form",clear_on_submit=True)
         user_question = myfrom.text_input("Ask your question: ", key='user_input',value='')
-        handle_userinput(user_question)
+
+    with st.container(): 
+        if myfrom.form_submit_button("Submit"):
+            if user_question:
+                handle_userinput(user_question)
 
     # for i, message in enumerate(st.session_state.chat_history):
     #     if i % 2 == 0:
