@@ -12,7 +12,6 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain_core.prompts import PromptTemplate
-import win32clipboard as clipboard
 import pyperclip
 from langchain.chains import (
     StuffDocumentsChain, LLMChain, ConversationalRetrievalChain
@@ -204,11 +203,8 @@ def app():
             if st.button("Copy", key=copy_button_id):
                copy_to_clipboard(message.content)
 
-def copy_to_clipboard(text):
-    clipboard.OpenClipboard()
-    clipboard.EmptyClipboard()
-    clipboard.SetClipboardText(text, clipboard.CF_UNICODETEXT)
-    clipboard.CloseClipboard()
+def copy_to_clipboard(content):
+    pyperclip.copy(content)
                      
 if __name__ == '__main__':
    app()
