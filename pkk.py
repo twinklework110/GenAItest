@@ -111,7 +111,8 @@ def get_conversation_chain(vectorstore):
     """
     llm = ChatOpenAI(
             #model_name="gpt-3.5-turbo",
-            model_name="gpt-4-1106-preview",
+            model_name="gpt-4-turbo-2024-04-09"
+    
             
             
     )
